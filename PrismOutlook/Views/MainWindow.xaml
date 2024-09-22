@@ -11,7 +11,7 @@
     prism:ViewModelLocator.AutoWireViewModel="True">
     <ig:RibbonWindowContentHost>
         <ig:RibbonWindowContentHost.Ribbon>
-            <ig:XamRibbon />
+            <ig:XamRibbon prism:RegionManager.RegionName="{x:Static core:RegionNames.RibbonRegion}" />
         </ig:RibbonWindowContentHost.Ribbon>
 
         <DockPanel>

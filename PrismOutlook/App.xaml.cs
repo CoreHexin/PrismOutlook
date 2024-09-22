@@ -1,4 +1,5 @@
 ﻿using Infragistics.Windows.OutlookBar;
+using Infragistics.Windows.Ribbon;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -32,5 +33,6 @@ public partial class App
     {
         base.ConfigureRegionAdapterMappings(regionAdapterMappings);
         regionAdapterMappings.RegisterMapping(typeof(XamOutlookBar), Container.Resolve<XamOutlookBarRegionAdapter>());
+        regionAdapterMappings.RegisterMapping(typeof(XamRibbon), Container.Resolve<XamRibbonRegionAdapter>());
     }
 }

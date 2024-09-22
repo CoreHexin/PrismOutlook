@@ -1,5 +1,6 @@
 ﻿using Infragistics.Windows.OutlookBar;
 using Prism.Regions;
+using System;
 using System.Collections.Specialized;
 
 namespace PrismOutlook.Core.Regions;
@@ -13,30 +14,31 @@ public class XamOutlookBarRegionAdapter : RegionAdapterBase<XamOutlookBar>
 
     protected override void Adapt(IRegion region, XamOutlookBar regionTarget)
     {
+        if (region == null)
+            throw new ArgumentNullException(nameof(region));
+
+        if (regionTarget == null)
+            throw new ArgumentNullException(nameof(regionTarget));
+
         region.Views.CollectionChanged += (s, e) =>
         {
-            switch (e.Action)
+            if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                case NotifyCollectionChangedAction.Add:
+                foreach (OutlookBarGroup group in e.NewItems)
+                {
+                    regionTarget.Groups.Add(group);
+                    if (regionTarget.Groups[0] == group)
                     {
-                        foreach (OutlookBarGroup group in e.NewItems)
-                        {
-                            regionTarget.Groups.Add(group);
-                            if (regionTarget.Groups[0] == group)
-                            {
-                                regionTarget.SelectedGroup = group;
-                            }
-                        }
-                        break;
+                        regionTarget.SelectedGroup = group;
                     }
-                case NotifyCollectionChangedAction.Remove:
-                    {
-                        foreach (OutlookBarGroup group in e.OldItems)
-                        {
-                            regionTarget.Groups.Remove(group);
-                        }
-                        break;
-                    }
+                }
+            }
+            else if (e.Action == NotifyCollectionChangedAction.Remove)
+            {
+                foreach (OutlookBarGroup group in e.OldItems)
+                {
+                    regionTarget.Groups.Remove(group);
+                }
             }
         };
     }

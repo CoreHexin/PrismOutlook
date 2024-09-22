@@ -1,5 +1,8 @@
-﻿using Prism.Ioc;
+﻿using Infragistics.Windows.OutlookBar;
+using Prism.Ioc;
 using Prism.Modularity;
+using Prism.Regions;
+using PrismOutlook.Core.Regions;
 using PrismOutlook.Modules.Mail;
 using PrismOutlook.Views;
 using System.Windows;
@@ -18,11 +21,16 @@ public partial class App
 
     protected override void RegisterTypes(IContainerRegistry containerRegistry)
     {
-
     }
 
     protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
     {
         moduleCatalog.AddModule<MailModule>();
+    }
+
+    protected override void ConfigureRegionAdapterMappings(RegionAdapterMappings regionAdapterMappings)
+    {
+        base.ConfigureRegionAdapterMappings(regionAdapterMappings);
+        regionAdapterMappings.RegisterMapping(typeof(XamOutlookBar), Container.Resolve<XamOutlookBarRegionAdapter>());
     }
 }

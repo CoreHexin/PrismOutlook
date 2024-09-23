@@ -1,20 +1,22 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using PrismOutlook.Core;
+using PrismOutlook.Modules.Contacts.Menus;
 using PrismOutlook.Modules.Contacts.Views;
 
-namespace PrismOutlook.Modules.Contacts
+namespace PrismOutlook.Modules.Contacts;
+
+public class ContactsModule : IModule
 {
-    public class ContactsModule : IModule
+    public void OnInitialized(IContainerProvider containerProvider)
     {
-        public void OnInitialized(IContainerProvider containerProvider)
-        {
+        IRegionManager regionManager = containerProvider.Resolve<IRegionManager>();
+        regionManager.RegisterViewWithRegion(RegionNames.OutlookGroupRegion, typeof(ContactsGroup));
+    }
 
-        }
+    public void RegisterTypes(IContainerRegistry containerRegistry)
+    {
 
-        public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-
-        }
     }
 }

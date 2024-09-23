@@ -11,6 +11,7 @@
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Modules\PrismOutlook.Modules.Contacts\PrismOutlook.Modules.Contacts.csproj" />
     <ProjectReference Include="..\Modules\PrismOutlook.Modules.Mail\PrismOutlook.Modules.Mail.csproj" />
     <ProjectReference Include="..\PrismOutlook.Core\PrismOutlook.Core.csproj" />
   </ItemGroup>

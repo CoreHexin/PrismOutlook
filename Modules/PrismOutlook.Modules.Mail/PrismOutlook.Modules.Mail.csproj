@@ -4,11 +4,13 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Infragistics.WPF.DataTree.Trial" Version="24.1.57" />
     <PackageReference Include="Infragistics.WPF.OutlookBar.Trial" Version="24.1.57" />
     <PackageReference Include="Infragistics.WPF.Ribbon.Trial" Version="24.1.57" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\PrismOutlook.Business\PrismOutlook.Business.csproj" />
     <ProjectReference Include="..\..\PrismOutlook.Core\PrismOutlook.Core.csproj" />
   </ItemGroup>
 </Project>

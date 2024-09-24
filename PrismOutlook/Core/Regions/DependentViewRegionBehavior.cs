@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrismOutlook.Modules.Contacts.ViewModels;
+namespace PrismOutlook.Core.Regions;
 
-public class ViewAViewModel
+public class DependentViewRegionBehavior
 {
 }

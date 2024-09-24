@@ -15,10 +15,11 @@
         </ig:RibbonWindowContentHost.Ribbon>
 
         <DockPanel>
-            <ig:XamOutlookBar 
+            <ig:XamOutlookBar
                 Width="200"
                 prism:RegionManager.RegionName="{x:Static core:RegionNames.OutlookGroupRegion}"
-                DockPanel.Dock="Left" />
+                DockPanel.Dock="Left"
+                SelectedGroupChanged="XamOutlookBar_SelectedGroupChanged" />
 
             <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" />
         </DockPanel>

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ig="http://schemas.infragistics.com/xaml/wpf"
     xmlns:local="clr-namespace:PrismOutlook.Modules.Contacts.Menus"
-    Header="Contacts">
+    Header="联系人">
     <Grid>
         <TextBlock Text="Contacts" />
     </Grid>

@@ -3,6 +3,7 @@ using Infragistics.Windows.Ribbon;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
+using PrismOutlook.Core;
 using PrismOutlook.Core.Regions;
 using PrismOutlook.Modules.Contacts;
 using PrismOutlook.Modules.Mail;
@@ -23,6 +24,7 @@ public partial class App
 
     protected override void RegisterTypes(IContainerRegistry containerRegistry)
     {
+        containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
     }
 
     protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

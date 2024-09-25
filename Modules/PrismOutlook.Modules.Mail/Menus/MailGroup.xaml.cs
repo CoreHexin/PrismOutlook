@@ -22,7 +22,8 @@ namespace PrismOutlook.Modules.Mail.Menus
                 var item = dataTree.SelectedDataItems?.FirstOrDefault() as NavigationItem;
                 if (item != null)
                     return item.NavigationPath;
-                return "MailList";
+
+                return "MailList?id=Default";
             }
         }
     }

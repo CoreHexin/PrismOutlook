@@ -17,8 +17,9 @@ public partial class MainWindow : XamRibbonWindow
     public MainWindow(IApplicationCommands applicationCommands)
     {
         InitializeComponent();
-        ThemeManager.ApplicationTheme = new Office2013Theme();
         _applicationCommands = applicationCommands;
+
+        ThemeManager.ApplicationTheme = new Office2013Theme();
     }
 
     private void XamOutlookBar_SelectedGroupChanged(object sender, RoutedEventArgs e)

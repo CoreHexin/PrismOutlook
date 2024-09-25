@@ -10,6 +10,7 @@ namespace PrismOutlook.Modules.Contacts.Menus
         public HomeTab()
         {
             InitializeComponent();
+            SetResourceReference(StyleProperty, typeof(RibbonTabItem));
         }
     }
 }

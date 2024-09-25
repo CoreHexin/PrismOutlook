@@ -1,5 +1,8 @@
 ﻿namespace PrismOutlook.Core;
 
+/// <summary>
+/// 关联视图attribute
+/// </summary>
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
 public class DependentViewAttribute : Attribute
 {

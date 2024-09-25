@@ -1,11 +1,13 @@
-﻿using Prism.Regions;
+﻿using Prism.Commands;
+using Prism.Regions;
 using PrismOutlook.Core;
+using System.Windows;
 
 namespace PrismOutlook.Modules.Mail.ViewModels;
 
 public class MailListViewModel : ViewModelBase
 {
-    private string _title;
+    private string _title = "Mail List View";
     public string Title
     {
         get { return _title; }

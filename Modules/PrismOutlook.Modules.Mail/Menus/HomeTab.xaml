@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ig="http://schemas.infragistics.com/xaml/wpf"
     xmlns:local="clr-namespace:PrismOutlook.Modules.Mail.Menus"
-    Header="Home">
+    Header="邮箱">
 
     <ig:RibbonGroup Caption="New">
         <ig:ToolHorizontalWrapPanel>

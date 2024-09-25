@@ -1,5 +1,4 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using PrismOutlook.Business;
 using PrismOutlook.Core;
 using System.Collections.ObjectModel;

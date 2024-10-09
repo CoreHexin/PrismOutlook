@@ -21,6 +21,7 @@
                 <ig:NodeLayout
                     Key="GlobalLayout"
                     DisplayMemberPath="Caption"
+                    IsExpandedMemberPath="IsExpanded"
                     TargetTypeName="NavigationItem" />
             </ig:XamDataTree.GlobalNodeLayouts>
 

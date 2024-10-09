@@ -15,5 +15,7 @@
     <ProjectReference Include="..\Modules\PrismOutlook.Modules.Contacts\PrismOutlook.Modules.Contacts.csproj" />
     <ProjectReference Include="..\Modules\PrismOutlook.Modules.Mail\PrismOutlook.Modules.Mail.csproj" />
     <ProjectReference Include="..\PrismOutlook.Core\PrismOutlook.Core.csproj" />
+    <ProjectReference Include="..\PrismOutlook.Services.Interfaces\PrismOutlook.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\PrismOutlook.Services\PrismOutlook.Services.csproj" />
   </ItemGroup>
 </Project>

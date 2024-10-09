@@ -1,26 +1,59 @@
-﻿using Prism.Commands;
-using Prism.Regions;
+﻿using Prism.Regions;
+using PrismOutlook.Business;
 using PrismOutlook.Core;
-using System.Windows;
+using PrismOutlook.Services.Interfaces;
+using System.Collections.ObjectModel;
 
 namespace PrismOutlook.Modules.Mail.ViewModels;
 
 public class MailListViewModel : ViewModelBase
 {
-    private string _title = "Mail List View";
-    public string Title
+    private readonly IMailService _mailService;
+
+    private ObservableCollection<MailMessage> _messages;
+
+    public ObservableCollection<MailMessage> Messages
     {
-        get { return _title; }
-        set { SetProperty(ref _title, value); }
+        get { return _messages; }
+        set { SetProperty(ref _messages, value); }
     }
 
-    public MailListViewModel()
+    private MailMessage _selectedMessage;
+    public MailMessage SelectedMessage
     {
+        get { return _selectedMessage; }
+        set { SetProperty(ref _selectedMessage, value); }
+    }
 
+    public MailListViewModel(IMailService mailService)
+    {
+        _mailService = mailService;
     }
 
     public override void OnNavigatedTo(NavigationContext navigationContext)
     {
-        Title = navigationContext.Parameters.GetValue<string>("id");
+        var folder = navigationContext.Parameters.GetValue<string>(FolderNames.FolderKey);
+
+        switch (folder)
+        {
+            case FolderNames.Inbox:
+                {
+                    Messages = new ObservableCollection<MailMessage>(_mailService.GetInboxItems());
+                    break;
+                }
+            case FolderNames.Sent:
+                {
+                    Messages = new ObservableCollection<MailMessage>(_mailService.GetSentItems());
+                    break;
+
+                }
+            case FolderNames.Deleted:
+                {
+                    Messages = new ObservableCollection<MailMessage>(_mailService.GetDeletedItems());
+                    break;
+                }
+            default:
+                break;
+        }
     }
 }

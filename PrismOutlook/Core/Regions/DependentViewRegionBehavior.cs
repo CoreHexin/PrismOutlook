@@ -91,9 +91,11 @@ public class DependentViewRegionBehavior : RegionBehavior
 
     private IRegionMemberLifetime GetViewOrDataContextLifeTime(object view)
     {
+        // ViewModel
         if (view is IRegionMemberLifetime lifetime)
             return lifetime;
 
+        // View
         if (view is FrameworkElement fe)
             return fe.DataContext as IRegionMemberLifetime;
 

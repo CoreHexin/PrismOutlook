@@ -35,11 +35,25 @@ public class MailGroupViewModel : ViewModelBase
     {
         Items = new ObservableCollection<NavigationItem>();
 
-        var root = new NavigationItem() { Caption = "Person Folder", NavigationPath = "MailList?id=Default" };
-        root.Items.Add(new NavigationItem() { Caption = "收件箱", NavigationPath = "MailList?id=Inbox" });
-        root.Items.Add(new NavigationItem() { Caption = "已发送", NavigationPath = "MailList?id=Send" });
-        root.Items.Add(new NavigationItem() { Caption = "已删除", NavigationPath = "MailList?id=Deleted" });
+        var root = new NavigationItem() { Caption = "Personal Folder", NavigationPath = "MailList?Folder=Default", IsExpanded = true };
+        root.Items.Add(new NavigationItem() { Caption = "收件箱", NavigationPath = GetNavigationPath(FolderNames.Inbox) });
+        root.Items.Add(new NavigationItem() { Caption = "已发送", NavigationPath = GetNavigationPath(FolderNames.Sent) });
+        root.Items.Add(new NavigationItem() { Caption = "已删除", NavigationPath = GetNavigationPath(FolderNames.Deleted) });
 
         Items.Add(root);
     }
+
+    private string GetNavigationPath(string folder)
+    {
+        return $"MailList?{FolderNames.FolderKey}={folder}";
+    }
+}
+
+public class FolderNames
+{
+    public const string FolderKey = "Folder";
+
+    public const string Inbox = "Inbox";
+    public const string Sent = "Sent";
+    public const string Deleted = "Deleted";
 }

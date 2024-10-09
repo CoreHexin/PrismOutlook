@@ -12,6 +12,7 @@ public class ViewModelBase : BindableBase, IConfirmNavigationRequest
 
     public virtual bool IsNavigationTarget(NavigationContext navigationContext)
     {
+        // view instance will always be re-used.
         return true;
     }
 
